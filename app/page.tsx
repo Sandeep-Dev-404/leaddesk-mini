@@ -155,25 +155,25 @@ export default function LandingPage() {
                   </p>
                 )}
 
-                <label className="block text-sm font-medium">Name</label>
+                <label className="block text-sm font-medium text-black">Name</label>
                 <input
                   value={form.name}
                   onChange={(e) => update("name", e.target.value)}
                   className={`${inputBase} mt-1 ${
-                    errors.name ? "border-red-400" : "border-slate-300"
+                    errors.name ? "border-red-400 text-black" : "border-slate-300 text-black"
                   }`}
-                  placeholder="Sandeep Kumar"
+                  placeholder="Your Name"
                 />
                 {errors.name && (
                   <p className="mt-1 text-xs text-red-600">{errors.name}</p>
                 )}
 
-                <label className="mt-4 block text-sm font-medium">Email</label>
+                <label className="mt-4 block text-sm font-medium text-black">Email</label>
                 <input
                   value={form.email}
                   onChange={(e) => update("email", e.target.value)}
                   className={`${inputBase} mt-1 ${
-                    errors.email ? "border-red-400" : "border-slate-300"
+                    errors.email ? "border-red-400 text-black" : "border-slate-300 text-black"
                   }`}
                   placeholder="you@company.com"
                 />
@@ -181,14 +181,14 @@ export default function LandingPage() {
                   <p className="mt-1 text-xs text-red-600">{errors.email}</p>
                 )}
 
-                <label className="mt-4 block text-sm font-medium">
+                <label className="mt-4 block text-sm font-medium text-black">
                   Budget range
                 </label>
                 <select
                   value={form.budget}
                   onChange={(e) => update("budget", e.target.value)}
                   className={`${inputBase} mt-1 bg-white ${
-                    errors.budget ? "border-red-400" : "border-slate-300"
+                    errors.budget ? "border-red-400 text-black" : "border-slate-300 text-black"
                   }`}
                 >
                   <option value="">Select a range</option>
@@ -202,7 +202,7 @@ export default function LandingPage() {
                   <p className="mt-1 text-xs text-red-600">{errors.budget}</p>
                 )}
 
-                <label className="mt-4 block text-sm font-medium">
+                <label className="mt-4 block text-sm font-medium text-black">
                   Project details
                 </label>
                 <textarea
@@ -210,7 +210,7 @@ export default function LandingPage() {
                   onChange={(e) => update("message", e.target.value)}
                   rows={5}
                   className={`${inputBase} mt-1 resize-none ${
-                    errors.message ? "border-red-400" : "border-slate-300"
+                    errors.message ? "border-red-400 text-black" : "border-slate-300 text-black"
                   }`}
                   placeholder="What are you building, and what is the deadline?"
                 />
