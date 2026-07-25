@@ -12,7 +12,7 @@ export const leadSchema = z.object({
     .toLowerCase()
     .email("Enter a valid email address"),
   budget: z.enum(["UNDER_1K", "ONE_TO_5K", "FIVE_TO_15K", "ABOVE_15K"], {
-    errorMap: () => ({ message: "Select a budget range" }),
+    message: "Select a budget range",
   }),
   message: z
     .string()

@@ -78,12 +78,13 @@ export async function GET(request: NextRequest) {
 
     if (and.length) where.AND = and;
 
-    const [items, counts] = await prisma.$transaction([
-      prisma.lead.findMany({ where, orderBy: { createdAt: "desc" }, take: 200 }),
-      prisma.lead.groupBy({ by: ["status"], _count: true }),
-    ]);
+    const items = await prisma.lead.findMany({
+      where,
+      orderBy: { createdAt: "desc" },
+      take: 200,
+    });
 
-    return NextResponse.json({ items, counts });
+    return NextResponse.json({ items });
   } catch (error) {
     console.error("GET /api/leads", error);
     return NextResponse.json(
