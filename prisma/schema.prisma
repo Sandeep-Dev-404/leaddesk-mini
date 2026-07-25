@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  CLOSED
+}
+
+enum BudgetRange {
+  UNDER_1K
+  ONE_TO_5K
+  FIVE_TO_15K
+  ABOVE_15K
+}
+
+model Lead {
+  id        String      @id @default(cuid())
+  name      String
+  email     String
+  budget    BudgetRange
+  message   String
+  status    LeadStatus  @default(NEW)
+  source    String      @default("landing_page")
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+
+  @@index([status])
+  @@index([email])
+  @@index([createdAt])
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+}
